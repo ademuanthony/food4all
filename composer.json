@@ -1,0 +1,45 @@
+{
+  "name": "MyeStores/Shopping cart",
+  "description": "Myestore Shopping Cart",
+  "keywords": ["myestores", "shopping cart", "ecommerce"],
+  "type": "project",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "doctrine/orm": "2.4.*",
+    "symfony/yaml": "2.*",
+    "symfony/routing": "2.*",
+    "symfony/config": "2.*",
+    "symfony/http-foundation": "2.*",
+    "symfony/http-kernel": "2.*",
+    "symfony/event-dispatcher": "2.*",
+    "symfony/dependency-injection": "2.*",
+    "symfony/templating": "2.*",
+    "verot/class.upload.php": "dev-master",
+    "plasticbrain/php-flash-messages": "*",
+    "sylius/promotion": "*",
+    "phpclasses/cpsubdomain": ">=1.0.0",
+    "athari/yalinqo": "~2.0",
+    "robmorgan/phinx": "^0.5.0",
+    "facebook/graph-sdk": "*"
+  },
+  "autoload": {
+    "psr-0": {"": ["app/", "lib/"]}
+  },
+  "repositories":
+  [
+    {
+      "type": "composer",
+      "url": "https:\/\/www.phpclasses.org\/"
+    },
+    {
+      "packagist": false
+    }
+  ],
+  "http-basic": {
+    "www.phpclasses.org": {
+      "username": "blenyo",
+      "password": "6c606598b08418333bf6944b2441b138"
+    }
+  }
+}

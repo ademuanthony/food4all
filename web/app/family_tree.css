@@ -1,0 +1,36 @@
+ul.tree {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+ul.tree,
+ul.tree ul {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+ul.tree li {
+    display: block;
+    width: auto;
+    float: left;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+}
+ul.tree ul li {
+    background-image: url(data:image/gif;base64,R0lGODdhAQABAIABAAAAAP///ywAAAAAAQABAAACAkQBADs=);
+    background-repeat: repeat-x;
+    background-position: left top;
+}
+ul.tree li span {
+    display: block;
+    width: 5em;
+    /*
+      uncomment to fix levels
+      height: 1.5em;
+    */
+    margin: 0 auto;
+    text-align: center;
+    white-space: normal;
+    letter-spacing: normal;
+}

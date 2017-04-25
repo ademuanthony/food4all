@@ -1,0 +1,319 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ELACHI
+ * Date: 8/3/2016
+ * Time: 9:15 AM
+ */
+
+namespace Models;
+
+
+use Framework\Base\Model;
+
+/**
+ * This is the model class for table "users".
+ * @Entity @Table(name="users")
+ **/
+class User extends Model
+{
+    /** @Id @Column(type="integer"), @GeneratedValue */
+    protected $id;
+
+    /** @Column(type="integer") */
+    protected $auth_id;
+
+    /** @Column(type="string", length=265)**/
+    protected $name;
+
+    /** @Column(type="string", length=28, unique=true)**/
+    protected $phone;
+
+    /** @Column(type="string", length=128, unique=true)**/
+    protected $email;
+
+    /** @Column(type="integer") */
+    protected $address_id;
+
+    /** @Column(type="integer") */
+    protected $shipping_address_id;
+
+    /**
+     * @OneToOne(targetEntity="Address")
+     * @JoinColumn(name="address_id", referencedColumnName="id")
+     */
+    protected $address;
+
+    /**
+     * @OneToOne(targetEntity="ShippingAddress")
+     * @JoinColumn(name="shipping_address_id", referencedColumnName="id")
+     */
+    protected $shipping_address;
+
+    /**
+     * @OneToOne(targetEntity="Auth", inversedBy="user")
+     * @JoinColumn(name="auth_id", referencedColumnName="id")
+     */
+    protected $auth;
+
+    /** @OneToMany(targetEntity="Order", mappedBy="user") */
+    protected $orders;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orders = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set auth_id
+     *
+     * @param integer $authId
+     * @return User
+     */
+    public function setAuthId($authId)
+    {
+        $this->auth_id = $authId;
+
+        return $this;
+    }
+
+    /**
+     * Get auth_id
+     *
+     * @return integer 
+     */
+    public function getAuthId()
+    {
+        return $this->auth_id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set address_id
+     *
+     * @param integer $addressId
+     * @return User
+     */
+    public function setAddressId($addressId)
+    {
+        $this->address_id = $addressId;
+
+        return $this;
+    }
+
+    /**
+     * Get address_id
+     *
+     * @return integer 
+     */
+    public function getAddressId()
+    {
+        return $this->address_id;
+    }
+
+    /**
+     * Set shipping_address_id
+     *
+     * @param integer $shippingAddressId
+     * @return User
+     */
+    public function setShippingAddressId($shippingAddressId)
+    {
+        $this->shipping_address_id = $shippingAddressId;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping_address_id
+     *
+     * @return integer 
+     */
+    public function getShippingAddressId()
+    {
+        return $this->shipping_address_id;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \Models\Address $address
+     * @return User
+     */
+    public function setAddress(\Models\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \Models\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set shipping_address
+     *
+     * @param \Models\ShippingAddress $shippingAddress
+     * @return User
+     */
+    public function setShippingAddress(\Models\ShippingAddress $shippingAddress = null)
+    {
+        $this->shipping_address = $shippingAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping_address
+     *
+     * @return \Models\ShippingAddress 
+     */
+    public function getShippingAddress()
+    {
+        return $this->shipping_address;
+    }
+
+    /**
+     * Set auth
+     *
+     * @param \Models\Auth $auth
+     * @return User
+     */
+    public function setAuth(\Models\Auth $auth = null)
+    {
+        $this->auth = $auth;
+
+        return $this;
+    }
+
+    /**
+     * Get auth
+     *
+     * @return \Models\Auth 
+     */
+    public function getAuth()
+    {
+        return $this->auth;
+    }
+
+    /**
+     * Add orders
+     *
+     * @param \Models\Order $orders
+     * @return User
+     */
+    public function addOrder(\Models\Order $orders)
+    {
+        $this->orders[] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Remove orders
+     *
+     * @param \Models\Order $orders
+     */
+    public function removeOrder(\Models\Order $orders)
+    {
+        $this->orders->removeElement($orders);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+}

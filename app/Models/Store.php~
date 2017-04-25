@@ -1,0 +1,526 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ELACHI
+ * Date: 8/2/2016
+ * Time: 8:49 PM
+ */
+
+namespace Models;
+
+
+use Framework\Base\Model;
+use Framework\TinyMvc;
+
+/** @Entity @Table(name="stores") */
+class Store extends Model
+{
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
+
+    /** @Column(type="integer") */
+    protected $merchant_id;
+
+    /** @Column(type="string", length=128) */
+    protected $name;
+
+    /** @Column(type="string", length=128) */
+    protected $sub_domain;
+
+    /** @Column(type="string", length=128) */
+    protected $icon;
+
+    /** @Column(type="string", length=128) */
+    protected $logo;
+
+    /** @Column(type="string", length=128) */
+    protected $banner;
+
+    /** @var  @Column(type="string", length=128) */
+    protected $theme = 'default';
+
+    /** @var  @Column(type="string", length=16) */
+    protected $header_color = '#000000';
+
+    /** @var  @Column(type="string", length=16) */
+    protected $footer_color = '#000000';
+
+    /** @var  @Column(type="string", length=16) */
+    protected $bottom_color = '#000000';
+
+    /** @Column(type="string", length=128) */
+    protected $url;
+
+    /** @Column(type="string", length=128) */
+    protected $remita_account_id;
+
+    /** @Column(type="string", length=128) */
+    protected $bank_account_name;
+
+    /** @Column(type="string", length=128) */
+    protected $bank_account_number;
+
+    /** @Column(type="string", length=128) */
+    protected $phone_number;
+
+    /** @Column(type="string", length=128) */
+    protected $email;
+
+    /** @Column(type="string", length=500) */
+    protected $address;
+
+    /** @Column(type="string", length=128) */
+    protected $short_about_test;
+
+    /** @OneToMany(targetEntity="Slider", mappedBy="store") */
+    protected $sliders;
+
+    /**
+     * get the root path for this store's assets
+     * @return string
+     */
+    public function getAssetRootFolder(){
+        return TinyMvc::$config['root'].'/web/stores/'.$this->getSubDomain();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set merchant_id
+     *
+     * @param integer $merchantId
+     * @return Store
+     */
+    public function setMerchantId($merchantId)
+    {
+        $this->merchant_id = $merchantId;
+
+        return $this;
+    }
+
+    /**
+     * Get merchant_id
+     *
+     * @return integer 
+     */
+    public function getMerchantId()
+    {
+        return $this->merchant_id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Store
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set sub_domain
+     *
+     * @param string $subDomain
+     * @return Store
+     */
+    public function setSubDomain($subDomain)
+    {
+        $this->sub_domain = $subDomain;
+
+        return $this;
+    }
+
+    /**
+     * Get sub_domain
+     *
+     * @return string 
+     */
+    public function getSubDomain()
+    {
+        return $this->sub_domain;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return Store
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     * @return Store
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string 
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set banner
+     *
+     * @param string $banner
+     * @return Store
+     */
+    public function setBanner($banner)
+    {
+        $this->banner = $banner;
+
+        return $this;
+    }
+
+    /**
+     * Get banner
+     *
+     * @return string 
+     */
+    public function getBanner()
+    {
+        return $this->banner;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Store
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set remita_account_id
+     *
+     * @param string $remitaAccountId
+     * @return Store
+     */
+    public function setRemitaAccountId($remitaAccountId)
+    {
+        $this->remita_account_id = $remitaAccountId;
+
+        return $this;
+    }
+
+    /**
+     * Get remita_account_id
+     *
+     * @return string 
+     */
+    public function getRemitaAccountId()
+    {
+        return $this->remita_account_id;
+    }
+
+    /**
+     * Set bank_account_name
+     *
+     * @param string $bankAccountName
+     * @return Store
+     */
+    public function setBankAccountName($bankAccountName)
+    {
+        $this->bank_account_name = $bankAccountName;
+
+        return $this;
+    }
+
+    /**
+     * Get bank_account_name
+     *
+     * @return string 
+     */
+    public function getBankAccountName()
+    {
+        return $this->bank_account_name;
+    }
+
+    /**
+     * Set bank_account_number
+     *
+     * @param string $bankAccountNumber
+     * @return Store
+     */
+    public function setBankAccountNumber($bankAccountNumber)
+    {
+        $this->bank_account_number = $bankAccountNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get bank_account_number
+     *
+     * @return string 
+     */
+    public function getBankAccountNumber()
+    {
+        return $this->bank_account_number;
+    }
+
+    /**
+     * Set theme
+     *
+     * @param string $theme
+     * @return Store
+     */
+    public function setTheme($theme)
+    {
+        $this->theme = $theme;
+
+        return $this;
+    }
+
+    /**
+     * Get theme
+     *
+     * @return string 
+     */
+    public function getTheme()
+    {
+        return $this->theme;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->sliders = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add sliders
+     *
+     * @param \Models\Slider $sliders
+     * @return Store
+     */
+    public function addSlider(\Models\Slider $sliders)
+    {
+        $this->sliders[] = $sliders;
+
+        return $this;
+    }
+
+    /**
+     * Remove sliders
+     *
+     * @param \Models\Slider $sliders
+     */
+    public function removeSlider(\Models\Slider $sliders)
+    {
+        $this->sliders->removeElement($sliders);
+    }
+
+    /**
+     * Get sliders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSliders()
+    {
+        return $this->sliders;
+    }
+
+    /**
+     * Set header_color
+     *
+     * @param string $headerColor
+     * @return Store
+     */
+    public function setHeaderColor($headerColor)
+    {
+        $this->header_color = $headerColor;
+
+        return $this;
+    }
+
+    /**
+     * Get header_color
+     *
+     * @return string 
+     */
+    public function getHeaderColor()
+    {
+        return $this->header_color;
+    }
+
+    /**
+     * Set footer_color
+     *
+     * @param string $footerColor
+     * @return Store
+     */
+    public function setFooterColor($footerColor)
+    {
+        $this->footer_color = $footerColor;
+
+        return $this;
+    }
+
+    /**
+     * Get footer_color
+     *
+     * @return string 
+     */
+    public function getFooterColor()
+    {
+        return $this->footer_color;
+    }
+
+    /**
+     * Set bottom_color
+     *
+     * @param string $bottomColor
+     * @return Store
+     */
+    public function setBottomColor($bottomColor)
+    {
+        $this->bottom_color = $bottomColor;
+
+        return $this;
+    }
+
+    /**
+     * Get bottom_color
+     *
+     * @return string 
+     */
+    public function getBottomColor()
+    {
+        return $this->bottom_color;
+    }
+
+    /**
+     * Set phone_number
+     *
+     * @param string $phoneNumber
+     * @return Store
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phone_number = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phone_number
+     *
+     * @return string 
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phone_number;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Store
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set short_about_test
+     *
+     * @param string $shortAboutTest
+     * @return Store
+     */
+    public function setShortAboutTest($shortAboutTest)
+    {
+        $this->short_about_test = $shortAboutTest;
+
+        return $this;
+    }
+
+    /**
+     * Get short_about_test
+     *
+     * @return string 
+     */
+    public function getShortAboutTest()
+    {
+        return $this->short_about_test;
+    }
+}

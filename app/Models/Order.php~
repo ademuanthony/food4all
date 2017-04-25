@@ -1,0 +1,331 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ELACHI
+ * Date: 8/2/2016
+ * Time: 4:18 PM
+ */
+
+namespace Models;
+use Framework\Base\Model;
+
+
+/**
+ * This is the model class for table "orders".
+ * @Entity @Table(name="sc_orders")
+ **/
+class Order extends Model
+{
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
+
+    /** @Column(type="integer") */
+    protected $store_id;
+
+    /** @Column(type="integer") */
+    protected $user_id;
+
+    /** @Column(type="datetime") */
+    protected $date;
+
+    /** @Column(type="integer") */
+    protected $status;
+
+    /** @Column(type="integer") */
+    protected $payment_Status;
+
+    /** @Column(type="integer") */
+    protected $shipping_address_id;
+
+    /**
+     * @OneToOne(targetEntity="ShippingAddress")
+     * @JoinColumn(name="shipping_address_id", referencedColumnName="id")
+     */
+    protected $shipping_address;
+
+    /** @OneToMany(targetEntity="OrderItem", mappedBy="order", cascade={"ALL"}, indexBy="item") */
+    protected $items;
+
+    /** @ManyToOne(targetEntity="User", inversedBy="orders") */
+    protected $user;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set store_id
+     *
+     * @param integer $storeId
+     * @return Order
+     */
+    public function setStoreId($storeId)
+    {
+        $this->store_id = $storeId;
+
+        return $this;
+    }
+
+    /**
+     * Get store_id
+     *
+     * @return integer 
+     */
+    public function getStoreId()
+    {
+        return $this->store_id;
+    }
+
+    /**
+     * Set customer_id
+     *
+     * @param integer $customerId
+     * @return Order
+     */
+    public function setCustomerId($customerId)
+    {
+        $this->customer_id = $customerId;
+
+        return $this;
+    }
+
+    /**
+     * Get customer_id
+     *
+     * @return integer 
+     */
+    public function getCustomerId()
+    {
+        return $this->customer_id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Order
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     * @return Order
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set payment_Status
+     *
+     * @param integer $paymentStatus
+     * @return Order
+     */
+    public function setPaymentStatus($paymentStatus)
+    {
+        $this->payment_Status = $paymentStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get payment_Status
+     *
+     * @return integer 
+     */
+    public function getPaymentStatus()
+    {
+        return $this->payment_Status;
+    }
+
+    /**
+     * Add items
+     *
+     * @param \Models\OrderItem $items
+     * @return Order
+     */
+    public function addItem(\Models\OrderItem $items)
+    {
+        $this->items[] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Remove items
+     *
+     * @param \Models\OrderItem $items
+     */
+    public function removeItem(\Models\OrderItem $items)
+    {
+        $this->items->removeElement($items);
+    }
+
+    /**
+     * Get items
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param \Models\Customer $customer
+     * @return Order
+     */
+    public function setCustomer(\Models\Customer $customer = null)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \Models\Customer 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * Set user_id
+     *
+     * @param integer $userId
+     * @return Order
+     */
+    public function setUserId($userId)
+    {
+        $this->user_id = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return integer 
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * Set shipping_address_id
+     *
+     * @param integer $shippingAddressId
+     * @return Order
+     */
+    public function setShippingAddressId($shippingAddressId)
+    {
+        $this->shipping_address_id = $shippingAddressId;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping_address_id
+     *
+     * @return integer 
+     */
+    public function getShippingAddressId()
+    {
+        return $this->shipping_address_id;
+    }
+
+    /**
+     * Set shipping_address
+     *
+     * @param \Models\ShippingAddress $shippingAddress
+     * @return Order
+     */
+    public function setShippingAddress(\Models\ShippingAddress $shippingAddress = null)
+    {
+        $this->shipping_address = $shippingAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping_address
+     *
+     * @return \Models\ShippingAddress 
+     */
+    public function getShippingAddress()
+    {
+        return $this->shipping_address;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Models\User $user
+     * @return Order
+     */
+    public function setUser(\Models\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Models\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

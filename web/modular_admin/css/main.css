@@ -1,0 +1,8 @@
+.profile-image{
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    max-width: 200px;
+    max-height:200px;
+    margin:auto;
+}
