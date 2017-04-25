@@ -1,16 +1,5 @@
 .container {
-    padding: 0 /*0.5rem*/;
-    margin: 0 auto;
-    max-width: 100% !important;
-    width: 99% !important;
-}
-
-section {
-    position: relative;
-    height: 100%;
-    width: 98%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    width: 85%;
 }
 
 .carousel .carousel-slider {

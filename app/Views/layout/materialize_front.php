@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ELACHI
- * Date: 12/8/2016
- * Time: 6:25 AM
- */
 
 use Framework\TinyMvc;
 use Helpers\Html;
@@ -20,8 +14,8 @@ use Globals\AppService;
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
-    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+    <meta name="description" content="FoodforAllNations is a clarion call to feed the world with the basic necessities of life as a result of this we want to empower as many people as possible that believe that every life count and that no living soul should go to bed hungry.">
+    <meta name="keywords" content="empower, food for all, feed the world, make money, 2x5 matrix, referral bonus, matching bonus, earn, earn a living">
 
     <title><?= Html::encode((isset($title)?$title.' - ':'').TinyMvc::$config['AppTitle']) ?></title>
 
@@ -59,7 +53,7 @@ use Globals\AppService;
                         <h1 class="logo-wrapper">
                             <a href="<?= TinyMvc::toRoute(AppService::RouteHome) ?>" class="brand-logo darken-1">
 
-                                <img style="height: 100px; width: 100px; margin-left: 21px;" src="<?= $view['assets']->getUrl('app/images/logo.png')?>" alt="food4all logo">
+                                <img style="height: 100px; width: 100px; margin: 14px 0 0 21px;" src="<?= $view['assets']->getUrl('app/images/logo.png')?>" alt="food4all logo">
                             </a>
                             <span class="logo-text">Food 4 All</span>
                         </h1>
@@ -159,37 +153,18 @@ use Globals\AppService;
     <!-- START WRAPPER -->
     <div class="wrapper">
 
-        <!-- START LEFT SIDEBAR NAV-->
-        <aside id="left-sidebar-nav hide-on-large-only">
-            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
-        </aside>
-        <!-- END LEFT SIDEBAR NAV-->
-
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
-
         <!-- START CONTENT -->
         <section id="content">
 
-            <!--start container-->
-            <div class="container">
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-                <!-- //////////////////////////////////////////////////////////////////////////// -->
+            <?= $content ?>
 
-                <?= $content ?>
-
-                <!-- //////////////////////////////////////////////////////////////////////////// -->
-            </div>
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+                
         </section>
         <!-- END CONTENT -->
-
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-        <!-- START RIGHT SIDEBAR NAV-->
-        <aside id="right-sidebar-nav">
-
-        </aside>
-        <!-- LEFT RIGHT SIDEBAR NAV-->
-
+        
     </div>
     <!-- END WRAPPER -->
 
@@ -220,11 +195,10 @@ Scripts
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); }
+<script>if (!window.jQuery) { document.write('<script src="<?= $view['assets']->getUrl('front/js/jquery-2.1.1.min.js');?>"><\/script>'); }
 </script>
-<!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-
+<script type="text/javascript" src="<?= $view['assets']->getUrl('front/js/materialize.min.js');?>"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script> -->
 <script>
     $(document).ready(function(){
         $('.carousel.carousel-slider').carousel({fullWidth: true});
