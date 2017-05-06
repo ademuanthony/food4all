@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col s12 m12 l10 offset-l1">
                 <p>As you join our vision of feeding the nations of the world with the basic necessities of life. Through the food for all nations project, you become a food channel to achieving this dream. And as a channel/ partner we make your life meaningful and a blessing so you can bless others. With just a onetime membership registration fee of $30</p>
-                <p>As a matter of fact you become our first project, we ensure that you don’t lack the basic necessities of life by empowering you  financially , materially and otherwise .you are required to pay a onetime membership fee of $30 to become our food channel / partner this automatically qualifies you to enjoy among other things. </p>
+                <p>As a matter of fact you become our first project, we ensure that you don’t lack the basic necessities of life by empowering you  financially , materially and otherwise .you are required to pay a onetime membership fee of $31 to become our food channel / partner this automatically qualifies you to enjoy among other things. </p>
 
                 <ul>
                     <li>Cash Rewards</li>

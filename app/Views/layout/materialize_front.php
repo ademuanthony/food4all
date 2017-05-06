@@ -20,7 +20,6 @@ use Globals\AppService;
     <title><?= Html::encode((isset($title)?$title.' - ':'').TinyMvc::$config['AppTitle']) ?></title>
 
     <!-- Favicons-->
-    <!--<link rel="icon" href="<?/*= $view['assets']->getUrl('materialize/images/favicon/favicon-32x32.png') */?>" sizes="32x32">-->
     <link rel="icon" href="<?= $view['assets']->getUrl('app/images/logo.png') ?>" sizes="32x32">
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="<?= $view['assets']->getUrl('materialize/images/favicon/apple-touch-icon-152x152.png')?>">
@@ -33,8 +32,10 @@ use Globals\AppService;
     <!-- CORE CSS-->
     <link href="<?= $view['assets']->getUrl('front/css/materialize.css" type="text/css')?>" rel="stylesheet" media="screen,projection">
     <!-- CSS style Horizontal Nav-->
-    <link href="<?= $view['assets']->getUrl('front/css/homepage.css')?>" type="text/css" rel="stylesheet" media="screen,projection">
-
+    <link href="<?= $view['assets']->getUrl('front/css/style.css')?>" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Font icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="<?= $view['assets']->getUrl('materialize/js/plugins/perfect-scrollbar/perfect-scrollbar.css')?>" type="text/css" rel="stylesheet" media="screen,projection">
 
@@ -98,8 +99,8 @@ use Globals\AppService;
                         </a>
                     </li>
                     <li>
-                        <a href="<?= TinyMvc::toRoute(AppService::Support) ?>" class="white-text">
-                            <span>Support</span>
+                        <a href="<?= TinyMvc::toRoute(AppService::Login) ?>" class="white-text">
+                            <span>Sign In</span>
                         </a>
                     </li>
                     <li>
@@ -190,14 +191,13 @@ use Globals\AppService;
 Scripts
 ================================================ -->
 
-<!-- jQuery Library -->
-<!--<script type="text/javascript" src="<?/*= $view['assets']->getUrl('materialize/js/plugins/jquery-1.11.2.min.js')*/?>"></script>-->
-
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>if (!window.jQuery) { document.write('<script src="<?= $view['assets']->getUrl('front/js/jquery-2.1.1.min.js');?>"><\/script>'); }
-</script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<script type="text/javascript" src="<?= $view['assets']->getUrl('front/js/jquery-2.1.1.min.js');?>"></script>
+<!-- Resource jQuery -->
 <script type="text/javascript" src="<?= $view['assets']->getUrl('front/js/materialize.min.js');?>"></script>
+<script type="text/javascript" src="<?= $view['assets']->getUrl('front/js/jquery.mobile.custom.min.js'); ?>"></script>
+<script type="text/javascript" src="<?= $view['assets']->getUrl('front/js/main.js'); ?>"></script> 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script> -->
 <script>
     $(document).ready(function(){

@@ -33,6 +33,9 @@ use Globals\AppService;
 
         <div class="col s12 m4 l4">
             <h4>Latest News</h4>
+            <ul class="crosshair">
+                <li><i class="fa fa-plus-circle"></i>Hello</li>
+            </ul>
         </div>
 
     </div>

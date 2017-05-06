@@ -16,7 +16,7 @@ return array(
     'env' => 'dev',
     AppConstants::FOOD_PERCENTAGE => 30,
     AppConstants::CASH_PERCENTAGE => 70,
-    AppConstants::REGISTRATION_FEE => 50,
-    AppConstants::REFERRAL_EARNING => 15,
+    AppConstants::REGISTRATION_FEE => 6200,
+    AppConstants::REFERRAL_EARNING => 6.2,
     AppConstants::ACCESS_MERC_ID => '02083'
 );

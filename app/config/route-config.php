@@ -19,7 +19,7 @@ $app->map(AppService::Gallery, '/gallery', '\\Controllers\\HomeController::Galle
 $app->map(AppService::Faq, '/faq', '\\Controllers\\HomeController::FaqAction');
 $app->map(AppService::HowItWorks, '/how-it-works', '\\Controllers\\HomeController::HowItWorksAction');
 $app->map(AppService::Register, '/join-now', '\\Controllers\\AccountController::RegisterAction');
-$app->map(AppService::Support, '/support', '\\Controllers\\HomeController::SupportAction');
+$app->map(AppService::Login, '/login', '\\Controllers\\AccountController::LoginAction');
 $app->map(AppService::Contact, '/contact', '\\Controllers\\HomeController::ContactAction');
 
 
