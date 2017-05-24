@@ -35,6 +35,7 @@ class AppConstants
     const FOOD_PERCENTAGE = 'food_percentage';
     const CASH_PERCENTAGE = 'cash_percentage';
     const REFERRAL_EARNING = 'referral_earning';
+    const CURRENCY_VALUE = 'currency_value';
 
     const ACCESS_MERC_ID = 'access_merc_id';
 

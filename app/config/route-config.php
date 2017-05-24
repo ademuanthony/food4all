@@ -30,7 +30,7 @@ $app->map(AppService::Genealogy_Direct_Down_Line, '/genealogy/direct', '\\Contro
 $app->map(AppService::Genealogy_My_Down_Line_tree, '/genealogy/tree', '\\Controllers\\Backend\\GenealogyController::TreeAction');
 $app->map(AppService::Genealogy_My_Down_Line_List, '/genealogy/list', '\\Controllers\\Backend\\GenealogyController::ListAction');
 
-$app->map(AppService::Earnings, '/earnings', '\\Controllers\\backend\\EarningsController::IndexAction');
+$app->map(AppService::Earnings, '/earnings', '\\Controllers\\Backend\\EarningsController::IndexAction');
 $app->map(AppService::GenealogySearch, '/genealogy/search', '\\Controllers\Backend\GenealogyController::SearchAction');
 $app->map(AppService::Profile, '/account', '\\Controllers\\Backend\\AccountController::IndexAction');
 $app->map(AppService::UPDATE_PERSONAL_INFORMATION, '/account/personalinformation/update', '\\Controllers\\Backend\\AccountController::UpdatePersonalInformationAction');
@@ -76,6 +76,11 @@ $app->map(AppService::RouteBackendProducts, '/backend/products', '\\Controllers\
 $app->map(AppService::RouteBackendAddProduct, '/backend/products/add', '\\Controllers\\Backend\\ProductController::AddAction');
 $app->map(AppService::RouteBackendManageProduct, '/backend/products/manage/{id}', '\\Controllers\\Backend\\ProductController::ManageAction');
 $app->map(AppService::RouteBackendDeleteProduct, '/backend/products/delete/{id}', '\\Controllers\\Backend\\ProductController::DeleteAction');
+
+$app->map(AppService::RouteBackendEarningEventType, '/backend/earning-event-types', '\\Controllers\\Backend\\EarningEventTypeController::IndexAction');
+$app->map(AppService::RouteBackendAddEarningEventType, '/backend/earning-event-types/add', '\\Controllers\\Backend\\EarningEventTypeController::AddAction');
+$app->map(AppService::RouteBackendManageEarningEventType, '/backend/earning-event-types/manage/{id}', '\\Controllers\\Backend\\EarningEventTypeController::ManageAction');
+$app->map(AppService::RouteBackendDeleteEarningEventType, '/backend/earning-event-types/delete/{id}', '\\Controllers\\Backend\\EarningEventTypeController::DeleteAction');
 
 $app->map(AppService::RouteBackendOrders, '/backend/orders', '\\Controllers\\Backend\\OrdersController::IndexAction');
 

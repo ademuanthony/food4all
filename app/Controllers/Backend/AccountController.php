@@ -119,7 +119,7 @@ class AccountController extends BackendBaseController
 
                 $email = $temp_member->getEmail();
                 $username = $temp_member->getUsername();
-                $password = $temp_member->getParentId();
+                $password = $temp_member->getPassword();
 
                 $member = new Member();
 

@@ -244,4 +244,9 @@ class Utility
     public static function getThemes(){
         return self::$thems;
     }
+
+
+    public static function getLocalCurrencyValue($amount){
+        return TinyMvc::$config[AppConstants::CURRENCY_VALUE] * $amount;
+    }
 }

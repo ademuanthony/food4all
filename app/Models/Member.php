@@ -492,7 +492,6 @@ class Member extends Model
                 $earning->save();
 
                 if($completed_stage->getMatchingBonusPercentage() > 0){
-
                     $earning = new Earning();
                     $earning->setMemberId($this->getSponsorId());
                     $earning->setAmount($completed_stage->getPrize() * $completed_stage->getMatchingBonusPercentage()/100);
@@ -683,7 +682,7 @@ class Member extends Model
 
         $stage_member->save();
 
-        $this->setState($stage_id);
+        $this->setStage($stage_id);
         $this->save();
 
         return $stage_member;
@@ -696,11 +695,15 @@ class Member extends Model
 
         switch($tree_type){
             case Tree::TYPE_GENEALOGY:
-                $sql = 'SELECT members.membership_id, members.parent_id, members.left_index, members.right_index, members.username, members.`level`, genealogies.stage_id FROM members '.
-                    ' INNER JOIN genealogies ON genealogies.membership_id = members.membership_id WHERE left_index BETWEEN '.$this->getLeftIndex().' AND '. $this->getRightIndex().' AND members.stage = '.$this->getStage().' ORDER BY left_index ASC;';
+                $sql = 'SELECT members.membership_id, members.parent_id, members.left_index, members.right_index, members.username, 
+                        members.`level`, genealogies.stage_id FROM members '.
+                    ' INNER JOIN genealogies ON genealogies.membership_id = members.membership_id
+                     WHERE left_index BETWEEN '.$this->getLeftIndex().' AND '. $this->getRightIndex().' AND 
+                     members.stage = '.$this->getStage().' ORDER BY left_index ASC;';
                 break;
             case Tree::TYPE_DIRECT_DOWNLINE:
-                $sql = "SELECT members.membership_id, members.parent_id, members.left_index, members.right_index, members.username, members.`level`, genealogies.stage_id FROM members
+                $sql = "SELECT members.membership_id, members.parent_id, members.left_index, members.right_index,
+                        members.username, members.`level`, genealogies.stage_id FROM members
                         INNER JOIN genealogies ON genealogies.membership_id = members.membership_id
                         WHERE (left_index = $this->left_index + 1 OR right_index = $this->right_index - 1)
                         OR members.id = $this->id ORDER BY left_index ASC;";
@@ -729,7 +732,7 @@ class Member extends Model
     }
 
     /**
-     * @return array
+     * @return Member[]
      */
     public function getAncestors(){
         $sql = "SELECT * FROM members WHERE left_index < $this->left_index AND right_index > $this->right_index ORDER BY left_index ASC;";

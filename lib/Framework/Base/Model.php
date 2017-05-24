@@ -220,6 +220,7 @@ class Model
 
         $condition = self::buildCondition($criteria);
 
+
         $bean = R::findOne((new static())->getTableName(), $condition['where'], $condition['bind']);
 
        return self::getObjFromBean($bean);

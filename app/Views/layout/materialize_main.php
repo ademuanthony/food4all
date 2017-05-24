@@ -316,6 +316,12 @@ use Globals\AppService;
                         </ul>
                     </li>
 
+                    <li class="bold <?= (Utility::isActiveMenu(AppService:: RouteBackendEarningEventType) ||
+                    (isset($currentMenu) && $currentMenu == AppService::RouteBackendEarningEventType)?'active':''); ?>">
+                        <a class="waves-effect waves-green" href="<?= TinyMvc::toRoute(AppService::RouteBackendEarningEventType) ?>">
+                            <i class="mdi-action-wallet-giftcard"></i> Earning Event Type </a>
+                    </li>
+
                     <li class="bold <?= (Utility::isActiveMenu(AppService:: BackendCampaigns) || (isset($currentMenu) && $currentMenu == AppService::RouteBackendOrders)?'active':''); ?>">
                         <a class="waves-effect waves-green" href="<?= TinyMvc::toRoute(AppService::BackendCampaigns) ?>">
                             <i class="mdi-action-wallet-giftcard"></i> Campaigns Setup </a>

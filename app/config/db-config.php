@@ -18,7 +18,7 @@ $dbParams_dev = array(
     'db_host'     => '127.0.0.1',
     'db_name'   => 'food4all',
     'db_username'     => 'root',
-    'db_password' => ''
+    'db_password' => '0000'
 );
 
 $dbParams_cli = array(

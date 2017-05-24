@@ -15,7 +15,6 @@ use Models\Earning;
 class EarningsController extends BackendBaseController
 {
     public function IndexAction(){
-
         if(!$this->requestIsAuthenticated()) return $this->accessDenied();
         $page = $this->request->get('page', 1);
         $off_set = ($page - 1) * $this->page_size;

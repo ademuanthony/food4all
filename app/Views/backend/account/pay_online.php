@@ -9,6 +9,7 @@
 use Framework\TinyMvc;
 use Globals\AppService;
 use Globals\Utility;
+use Globals\AppConstants;
 
 /** @var \Models\TempMember $member */
 ?>
@@ -63,7 +64,7 @@ use Globals\Utility;
 
                     <input type="hidden" name="mercId" value="<?= TinyMvc::$config[\Globals\AppConstants::ACCESS_MERC_ID] ?>">
                     <input type="hidden" name="currCode" value="566">
-                    <input type="hidden" name="amt" value="<?= TinyMvc::$config[\Globals\AppConstants::REGISTRATION_FEE] * $member->getNumberOfAccounts() ?>">
+                    <input type="hidden" name="amt" value="<?= Utility::getLocalCurrencyValue(TinyMvc::$config[AppConstants::REGISTRATION_FEE] * $member->getNumberOfAccounts()) ?>">
                     <input type="hidden" name="orderId" value="<?= $member->getRef() ?>">
                     <input type="hidden" name="prod" value="Registration Fee">
                     <input type="hidden" name="email" value="<?= $member->getEmail() ?>">

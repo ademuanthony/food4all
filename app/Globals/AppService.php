@@ -34,6 +34,11 @@ class AppService
     const RouteBackendManageProduct = 'manage_product';
     const RouteBackendDeleteProduct = 'delete_product';
 
+    const RouteBackendEarningEventType = 'earning_event_type';
+    const RouteBackendAddEarningEventType = 'add_earning_event_type';
+    const RouteBackendManageEarningEventType = 'manage_earning_event_type';
+    const RouteBackendDeleteEarningEventType = 'delete_earning_event_type';
+
     const RouteBackendOrders = 'orders';
 
     const RouteBackendCustomers = 'customers';
